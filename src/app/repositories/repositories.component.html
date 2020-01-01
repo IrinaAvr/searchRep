@@ -1,0 +1,35 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h4><label for="search-box">Search Repositories:</label></h4>
+      
+      <div class="input-group mb-3">
+        <input #searchString type="text" class="form-control" placeholder="press KeyWord..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" (click)="GetRepositoriesByKeyword(searchString.value)">Search</button>
+        </div>
+      </div>
+      <div *ngIf="repositories">
+        <h4>Repositories!</h4>
+        <ul>
+          <li *ngFor="let rep of repositories" [value]="rep">
+              <!--<div><span>Id:       </span>{{rep.Id}}</div>-->
+              <button type="link" class="btn btn-link" (click)="goToUrl(rep.RepositoryName)" >{{rep.RepositoryName}}</button>
+              <div><img width="50" src="{{rep.FotoURL}}" /></div>
+              <div><span><br></span></div>
+              <button type="button" class="btn btn-primary btn-xs" (click)="Bookmark(rep)">Bookmark</button>
+              <div><span><br></span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm">
+      <app-bookmarks [Bookmarks]="bookmarks"></app-bookmarks>
+    </div>
+  </div>
+</div>
+
+
+
+

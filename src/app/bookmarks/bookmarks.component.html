@@ -1,0 +1,12 @@
+<div *ngIf="Bookmarks">
+    <h4>Bookmarks!</h4>
+    <ul>
+        <li *ngFor="let bok of Bookmarks" [value]="bok">
+            <!--<div><span>Id:       </span>{{rep.Id}}</div>-->
+            <button type="link" class="btn btn-link" (click)="goToUrl(bok.RepositoryName)" >{{bok.RepositoryName}}</button>
+            <div><img width="50" src="{{bok.FotoURL}}" /></div>
+            <div><span><br></span></div>
+            
+        </li>
+    </ul>
+</div>
